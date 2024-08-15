@@ -23,7 +23,9 @@ const Home = () => {
         {/* navbar */}
         <ProductNav handleToggle={handleToggle} isActive={isActive} />
         <div className="flex-grow p-4 overflow-auto">
-          <h1>Product List</h1>
+          <div>
+            <h1>Product List</h1>
+          </div>
         </div>
       </div>
     </div>

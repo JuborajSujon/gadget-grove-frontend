@@ -5,13 +5,25 @@ export const ProductContext = createContext(null);
 
 const ProductProvider = ({ children }) => {
   const [pLoading, setPLoading] = useState(true);
-  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const productInfo = {
     pLoading,
     setPLoading,
-    products,
-    setProducts,
+    allProducts,
+    setAllProducts,
+    itemsPerPage,
+    setItemsPerPage,
+    currentPage,
+    setCurrentPage,
+    search,
+    setSearch,
+    searchText,
+    setSearchText,
   };
 
   return (
