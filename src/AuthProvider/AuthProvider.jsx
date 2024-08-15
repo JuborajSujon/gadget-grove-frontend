@@ -73,16 +73,6 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  // get token from server
-  const getToken = async (email) => {
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_API_URL}/jwt`,
-      { email },
-      { withCredentials: true }
-    );
-    return data;
-  };
-
   // save user data in db
   const saveUser = async (user) => {
     const currentUser = {
@@ -105,11 +95,9 @@ const AuthProvider = ({ children }) => {
   // observer user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const email = currentUser?.email || user?.email;
       setUser(currentUser);
       setLoading(false);
       if (currentUser) {
-        getToken(email);
         saveUser(currentUser);
       }
     });
