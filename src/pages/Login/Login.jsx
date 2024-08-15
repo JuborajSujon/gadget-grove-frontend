@@ -6,7 +6,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import useScrollToTop from "../../Hooks/useScrollToTop";
 import useSocialLogin from "../../Hooks/useSocialLogin";
-import useAuth from "./../../hooks/useAuth";
+import useAuth from "./../../Hooks/useAuth";
 
 export default function Login() {
   // page scroll to top

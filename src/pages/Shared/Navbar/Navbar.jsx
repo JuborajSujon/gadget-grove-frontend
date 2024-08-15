@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import Logo from "../../../assets/logo.png";
-import useAuth from "./../../../hooks/useAuth";
 import useScrollPosition from "../../../Hooks/useScrollPosition";
+import useAuth from "./../../../Hooks/useAuth";
 
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
