@@ -10,7 +10,7 @@ const Home = () => {
   };
 
   return (
-    <div className="mt-16 px-4">
+    <div className="mt-16 px-4 flex max-w-[1540px] mx-auto font-poppins">
       <Helmet>
         <title>Home</title>
       </Helmet>

@@ -48,7 +48,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
 
           {/* Filter Menu */}
           <div className="flex flex-col justify-between flex-1">
-            {/* Filter Menu */}
+            {/* search */}
           </div>
         </div>
 

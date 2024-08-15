@@ -7,14 +7,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes";
 import AuthProvider from "./AuthProvider/AuthProvider";
+import ProductProvider from "./ProductProvider/ProductProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <HelmetProvider>
-        <RouterProvider router={router} />
-        <ToastContainer />
-      </HelmetProvider>
+      <ProductProvider>
+        <HelmetProvider>
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </HelmetProvider>
+      </ProductProvider>
     </AuthProvider>
   </StrictMode>
 );
