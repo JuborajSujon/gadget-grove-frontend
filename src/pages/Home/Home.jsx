@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 const Home = () => {
   return (
-    <div>
+    <div className="mt-16 px-4">
       <Helmet>
         <title>Home</title>
       </Helmet>

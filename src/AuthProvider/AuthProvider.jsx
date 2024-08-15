@@ -67,9 +67,6 @@ const AuthProvider = ({ children }) => {
   // sign out
   const userSignOut = async () => {
     setLoading(true);
-    await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
-      withCredentials: true,
-    });
     return signOut(auth);
   };
 
@@ -79,8 +76,7 @@ const AuthProvider = ({ children }) => {
       email: user?.email,
       name: user?.displayName,
       photo: user?.photoURL || "https://i.ibb.co/Jn1jJHN/avater.png",
-      role: "verified",
-      badge: "bronze",
+      role: "user",
       status: "active",
       createdAt: user?.metadata.createdAt,
       lastLogin: user?.metadata.lastLoginAt,

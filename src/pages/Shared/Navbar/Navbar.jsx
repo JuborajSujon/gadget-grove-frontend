@@ -157,7 +157,7 @@ export default function Navbar() {
               className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-transparent text-slate-800 dark:border-white dark:text-white">
               <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-orange-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
               <span className="relative text-indigo-600 dark:text-orange-500  transition duration-300 group-hover:text-white ease">
-                Join Us
+                Login
               </span>
             </Link>
           </div>
