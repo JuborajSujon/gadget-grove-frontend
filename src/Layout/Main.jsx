@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div className="font-poppins">
       <Navbar />
-      <div className="dark:bg-slate-800 min-h-[calc(100vh-110px)] overflow-x-hidden pt-2">
+      <div className="dark:bg-slate-800 overflow-x-hidden pt-2 ">
         <Outlet />
         <ThemeController />
       </div>

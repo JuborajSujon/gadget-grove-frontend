@@ -22,11 +22,11 @@ const Sidebar = ({ handleToggle, isActive }) => {
       {/* Sidebar */}
 
       <div
-        className={`md:flex flex-col justify-between overflow-x-hidden border-r border-gray-200 bg-slate-200 dark:bg-slate-800  space-y-6 px-2 py-3 z-20 min-h-screen w-64 ${
+        className={`md:flex flex-col justify-between overflow-x-hidden border-r border-gray-200 bg-slate-200 dark:bg-slate-800  space-y-6 px-2 py-3 z-20 min-h-[calc(100vh-100px)] w-64 ${
           isActive ? "translate-x-0" : "-translate-x-full"
-        } transform md:translate-x-0 md:static fixed top-0 left-0 h-full transition-transform duration-200 ease-in-out`}>
+        } transform md:translate-x-0 md:static fixed top-0 left-0 transition-transform duration-200 ease-in-out`}>
         <div>
-          <div className="flex justify-end border-b border-gray-200  pb-4">
+          <div className="flex justify-end pb-4">
             <button
               onClick={handleToggle}
               className="btn btn-circle btn-sm md:hidden">
