@@ -12,13 +12,20 @@ const ProductProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [searchText, setSearchText] = useState("");
 
+  const [priceRange, setPriceRange] = useState([0, 10]);
+  const [minPrice, maxPrice] = priceRange || [0, 0];
+
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [sort, setSort] = useState("");
+
   const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await axiosPublic.get(
-          `products?page=${currentPage}&size=${itemsPerPage}&search=${search}`
+          `products?page=${currentPage}&size=${itemsPerPage}&search=${search}&category=${category}&brand=${brand}&minPrice=${minPrice}&maxPrice=${maxPrice}&sort=${sort}`
         );
 
         setAllProducts(res.data);
@@ -45,6 +52,11 @@ const ProductProvider = ({ children }) => {
     setCurrentPage(value);
   };
 
+  const handleRangeChange = (event) => {
+    const value = parseInt(event.target.value);
+    setPriceRange([0, value]);
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     setSearch(searchText);
@@ -68,6 +80,17 @@ const ProductProvider = ({ children }) => {
     pages,
     handleSearch,
     numberOfPages,
+    priceRange,
+    setPriceRange,
+    minPrice,
+    maxPrice,
+    handleRangeChange,
+    category,
+    setCategory,
+    brand,
+    setBrand,
+    sort,
+    setSort,
   };
 
   return (
