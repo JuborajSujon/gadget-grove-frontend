@@ -4,8 +4,8 @@ import { Helmet } from "react-helmet-async";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import useScrollToTop from "./../../Hooks/useScrollToTop";
-import useSocialLogin from "./../../Hooks/useSocialLogin";
+import useScrollToTop from "../../Hooks/useScrollToTop";
+import useSocialLogin from "../../Hooks/useSocialLogin";
 import useAuth from "./../../hooks/useAuth";
 
 export default function Login() {
