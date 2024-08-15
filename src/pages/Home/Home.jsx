@@ -3,6 +3,7 @@ import { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import ProductNav from "../../components/ProductNav/ProductNav";
 import useProducts from "./../../Hooks/useProducts";
+import ProductCard from "../../components/ProductCard/ProductCard";
 const Home = () => {
   const [isActive, setActive] = useState(false);
   const { currentPage, handlePaginationButton, pages, numberOfPages } =
@@ -27,7 +28,14 @@ const Home = () => {
         <ProductNav handleToggle={handleToggle} isActive={isActive} />
         <div className="flex-1 p-4 overflow-auto">
           <div className="flex flex-col min-h-[calc(100vh-200px)] justify-between ">
-            <h1 className="">Product Container</h1>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+            </div>
 
             {/* pagination */}
 
