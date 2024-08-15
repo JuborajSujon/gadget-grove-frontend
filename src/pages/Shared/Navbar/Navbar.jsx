@@ -50,7 +50,7 @@ export default function Navbar() {
       </li>
       <li>
         <NavLink
-          to="/meals"
+          to="/laptop"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -58,7 +58,7 @@ export default function Navbar() {
               ? "text-orange-600 px-2 py-1.5 dark:text-white"
               : "hover:text-slate-900 px-2 py-1.5 hover:bg-orange-400 rounded-md dark:text-orange-500 dark:hover:text-slate-900"
           }>
-          Meals
+          Laptop
         </NavLink>
       </li>
     </>
