@@ -21,9 +21,43 @@ const ProductProvider = ({ children }) => {
 
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
+  const [maxPriceNumber, setMaxPriceNumber] = useState(0);
 
   const axiosPublic = useAxiosPublic();
 
+  // get category list and brand list and max price
+  useEffect(() => {
+    const getCategoryList = async () => {
+      try {
+        const res = await axiosPublic.get(`products/category`);
+        setCategoryList(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const getBrandList = async () => {
+      try {
+        const res = await axiosPublic.get(`products/brand`);
+        setBrandList(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const getMaxPrice = async () => {
+      try {
+        const res = await axiosPublic.get(`products/max-price`);
+        setMaxPriceNumber(res.data[0].maxPrice);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getCategoryList();
+    getBrandList();
+    getMaxPrice();
+  }, [axiosPublic]);
+
+  // get all products
   useEffect(() => {
     const getData = async () => {
       try {
@@ -107,6 +141,7 @@ const ProductProvider = ({ children }) => {
     setSort,
     categoryList,
     brandList,
+    maxPriceNumber,
   };
 
   return (

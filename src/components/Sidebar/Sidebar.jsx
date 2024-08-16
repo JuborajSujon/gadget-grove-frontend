@@ -23,6 +23,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
     setSort,
     categoryList,
     brandList,
+    maxPriceNumber,
   } = useProducts();
   const navigate = useNavigate();
 
@@ -143,11 +144,11 @@ const Sidebar = ({ handleToggle, isActive }) => {
 
               <div className="mt-5">
                 <p className=" font-medium">Price</p>
-                <p>${maxPrice}</p>
+                <p>${maxPriceNumber}</p>
                 <input
                   type="range"
                   min={minPrice}
-                  max="2000000"
+                  max={maxPriceNumber}
                   value={maxPrice}
                   onChange={handleRangeChange}
                   className="w-full max-w-xs"
