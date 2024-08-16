@@ -7,17 +7,20 @@ export const ProductContext = createContext(null);
 const ProductProvider = ({ children }) => {
   const [pLoading, setPLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [searchText, setSearchText] = useState("");
 
-  const [priceRange, setPriceRange] = useState([0, 10]);
+  const [priceRange, setPriceRange] = useState([0, 1000000]);
   const [minPrice, maxPrice] = priceRange || [0, 0];
 
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
   const [sort, setSort] = useState("");
+
+  const [categoryList, setCategoryList] = useState([]);
+  const [brandList, setBrandList] = useState([]);
 
   const axiosPublic = useAxiosPublic();
 
@@ -36,7 +39,18 @@ const ProductProvider = ({ children }) => {
     };
 
     getData();
-  }, [currentPage, itemsPerPage, search, searchText, axiosPublic]);
+  }, [
+    currentPage,
+    itemsPerPage,
+    search,
+    searchText,
+    axiosPublic,
+    category,
+    brand,
+    minPrice,
+    maxPrice,
+    sort,
+  ]);
 
   const numberOfPages = Math.ceil(allProducts.count / itemsPerPage);
 
@@ -91,6 +105,8 @@ const ProductProvider = ({ children }) => {
     setBrand,
     sort,
     setSort,
+    categoryList,
+    brandList,
   };
 
   return (

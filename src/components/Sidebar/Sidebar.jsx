@@ -21,6 +21,8 @@ const Sidebar = ({ handleToggle, isActive }) => {
     setBrand,
     sort,
     setSort,
+    categoryList,
+    brandList,
   } = useProducts();
   const navigate = useNavigate();
 
@@ -115,9 +117,11 @@ const Sidebar = ({ handleToggle, isActive }) => {
                   defaultValue={brand}
                   className="select select-bordered w-full rounded">
                   <option value={""}></option>
-                  <option value={"a4tech"}>A4Tech</option>
-                  <option>Lenevo</option>
-                  <option>Oppo</option>
+                  {brandList?.map((brand) => (
+                    <option key={brand} value={brand}>
+                      {brand}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -129,9 +133,11 @@ const Sidebar = ({ handleToggle, isActive }) => {
                   defaultValue={category}
                   className="select select-bordered w-full rounded">
                   <option value={""}></option>
-                  <option value={"a4tech"}>A4Tech</option>
-                  <option>Lenevo</option>
-                  <option>Oppo</option>
+                  {categoryList?.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -141,7 +147,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
                 <input
                   type="range"
                   min={minPrice}
-                  max="10"
+                  max="2000000"
                   value={maxPrice}
                   onChange={handleRangeChange}
                   className="w-full max-w-xs"
