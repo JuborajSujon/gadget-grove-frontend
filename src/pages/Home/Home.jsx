@@ -6,8 +6,14 @@ import useProducts from "./../../Hooks/useProducts";
 import ProductCard from "../../components/ProductCard/ProductCard";
 const Home = () => {
   const [isActive, setActive] = useState(false);
-  const { currentPage, handlePaginationButton, pages, numberOfPages } =
-    useProducts();
+  const {
+    currentPage,
+    handlePaginationButton,
+    pages,
+    numberOfPages,
+    allProducts,
+  } = useProducts();
+
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -29,12 +35,9 @@ const Home = () => {
         <div className="flex-1 p-4 overflow-auto">
           <div className="flex flex-col min-h-[calc(100vh-200px)] justify-between ">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
+              {allProducts?.productsData?.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
             </div>
 
             {/* pagination */}
