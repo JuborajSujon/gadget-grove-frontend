@@ -14,6 +14,7 @@ const Home = () => {
     numberOfPages,
     allProducts,
     ploading,
+    productCount,
   } = useProducts();
 
   // Sidebar Responsive Handler
@@ -37,6 +38,12 @@ const Home = () => {
         <div className="flex-1 p-4 overflow-auto">
           <div className="flex flex-col min-h-[calc(100vh-200px)] justify-between ">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+              {/* product count */}
+              <p>
+                {" "}
+                Products Found:{" "}
+                <span className="text-blue-500">{productCount}</span>
+              </p>
               {/* loader */}
               {ploading && <Loading />}
 

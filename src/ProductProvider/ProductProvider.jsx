@@ -23,26 +23,28 @@ const ProductProvider = ({ children }) => {
   const [brandList, setBrandList] = useState([]);
   const [maxPriceNumber, setMaxPriceNumber] = useState(0);
 
+  const [productCount, setProductCount] = useState(0);
+
   const axiosPublic = useAxiosPublic();
 
   // get category list and brand list and max price
   useEffect(() => {
-    const getCategoryList = async () => {
+    const getUnilityList = async () => {
       try {
-        const res = await axiosPublic.get(`products/category`);
-        setCategoryList(res.data);
+        const res = await axiosPublic.get(
+          `products/category?search=${search}&category=${category}&brand=${brand}`
+        );
+        setCategoryList(res.data.categories);
+        setBrandList(res.data.brands);
       } catch (error) {
         console.log(error);
       }
     };
-    const getBrandList = async () => {
-      try {
-        const res = await axiosPublic.get(`products/brand`);
-        setBrandList(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    getUnilityList();
+  }, [axiosPublic, search, category, brand, minPrice, maxPrice, sort]);
+
+  // Get maxprice from the database
+  useEffect(() => {
     const getMaxPrice = async () => {
       try {
         const res = await axiosPublic.get(`products/max-price`);
@@ -52,9 +54,6 @@ const ProductProvider = ({ children }) => {
         console.log(error);
       }
     };
-
-    getCategoryList();
-    getBrandList();
     getMaxPrice();
   }, [axiosPublic]);
 
@@ -67,6 +66,7 @@ const ProductProvider = ({ children }) => {
         );
 
         setAllProducts(res.data);
+        setProductCount(res.data.count);
         setPLoading(false);
       } catch (error) {
         console.log(error);
@@ -143,6 +143,7 @@ const ProductProvider = ({ children }) => {
     categoryList,
     brandList,
     maxPriceNumber,
+    productCount,
   };
 
   return (

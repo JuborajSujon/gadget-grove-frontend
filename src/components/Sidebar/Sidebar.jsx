@@ -100,10 +100,10 @@ const Sidebar = ({ handleToggle, isActive }) => {
                 onChange={(e) => setSort(e.target.value)}
                 defaultValue={sort}
                 className="select select-bordered w-full rounded">
-                <option value={""}></option>
+                <option value={""}>All Condition</option>
                 <option value={"new"}>New Arivals</option>
-                <option value={"lth"}>Low to high</option>
-                <option value={"htl"}>High to low</option>
+                <option value={"lth"}>Price Low to high</option>
+                <option value={"htl"}>Price High to low</option>
               </select>
             </div>
 
@@ -117,7 +117,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
                   onChange={(e) => setBrand(e.target.value)}
                   defaultValue={brand}
                   className="select select-bordered w-full rounded">
-                  <option value={""}></option>
+                  <option value={""}>All Brands</option>
                   {brandList?.map((brand) => (
                     <option key={brand} value={brand}>
                       {brand}
@@ -133,7 +133,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
                   onChange={(e) => setCategory(e.target.value)}
                   defaultValue={category}
                   className="select select-bordered w-full rounded">
-                  <option value={""}></option>
+                  <option value={""}>All Categories</option>
                   {categoryList?.map((category) => (
                     <option key={category} value={category}>
                       {category}
