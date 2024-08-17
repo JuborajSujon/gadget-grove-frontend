@@ -48,19 +48,6 @@ export default function Navbar() {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/laptop"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "text-orange-600 px-2 py-1.5 dark:text-white"
-              : "hover:text-slate-900 px-2 py-1.5 hover:bg-orange-400 rounded-md dark:text-orange-500 dark:hover:text-slate-900"
-          }>
-          Laptop
-        </NavLink>
-      </li>
     </>
   );
   return (

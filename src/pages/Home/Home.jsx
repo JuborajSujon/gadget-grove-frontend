@@ -4,6 +4,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import ProductNav from "../../components/ProductNav/ProductNav";
 import useProducts from "./../../Hooks/useProducts";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import Loading from "../../components/Loading/Loading";
 const Home = () => {
   const [isActive, setActive] = useState(false);
   const {
@@ -12,6 +13,7 @@ const Home = () => {
     pages,
     numberOfPages,
     allProducts,
+    ploading,
   } = useProducts();
 
   // Sidebar Responsive Handler
@@ -35,6 +37,16 @@ const Home = () => {
         <div className="flex-1 p-4 overflow-auto">
           <div className="flex flex-col min-h-[calc(100vh-200px)] justify-between ">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+              {/* loader */}
+              {ploading && <Loading />}
+
+              {/* if there is no product */}
+              {allProducts?.productsData?.length === 0 && !ploading && (
+                <div className="text-center">
+                  <h1 className="text-3xl font-bold">No Product Found</h1>
+                </div>
+              )}
+              {/* product card */}
               {allProducts?.productsData?.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}

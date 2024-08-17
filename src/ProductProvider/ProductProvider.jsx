@@ -47,6 +47,7 @@ const ProductProvider = ({ children }) => {
       try {
         const res = await axiosPublic.get(`products/max-price`);
         setMaxPriceNumber(res.data[0].maxPrice);
+        setPriceRange([0, res.data[0].maxPrice]);
       } catch (error) {
         console.log(error);
       }

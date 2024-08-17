@@ -144,7 +144,7 @@ const Sidebar = ({ handleToggle, isActive }) => {
 
               <div className="mt-5">
                 <p className=" font-medium">Price</p>
-                <p>${maxPriceNumber}</p>
+                <p>${maxPrice}</p>
                 <input
                   type="range"
                   min={minPrice}
