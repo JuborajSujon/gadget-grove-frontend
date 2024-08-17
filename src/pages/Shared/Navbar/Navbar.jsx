@@ -4,12 +4,14 @@ import { IoIosNotifications } from "react-icons/io";
 import Logo from "../../../assets/logo.png";
 import useScrollPosition from "../../../Hooks/useScrollPosition";
 import useAuth from "./../../../Hooks/useAuth";
+import useUser from "../../../Hooks/useUser";
 
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const { user, userSignOut, setUser, reload } = useAuth();
   const scrollPosition = useScrollPosition();
   const navigate = useNavigate();
+  const userInfo = useUser();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -47,6 +49,21 @@ export default function Navbar() {
           }>
           Home
         </NavLink>
+      </li>
+      <li>
+        {userInfo?.role === "admin" && (
+          <NavLink
+            to="/add-product"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-orange-600 px-2 py-1.5 dark:text-white"
+                : "hover:text-slate-900  px-2 py-1.5 hover:bg-orange-400 rounded-md dark:text-orange-500 dark:hover:text-slate-900"
+            }>
+            Add Product
+          </NavLink>
+        )}
       </li>
     </>
   );
@@ -126,6 +143,9 @@ export default function Navbar() {
                 className="menu menu-sm dropdown-content mt-0 -ml-48 z-[1] py-3 px-4 shadow bg-base-100 rounded-md w-64 absolute space-y-2">
                 <p className="text-base flex justify-between items-center">
                   Name : {user?.displayName || "user name not found"}
+                </p>
+                <p className="text-base flex justify-between items-center">
+                  Role : {userInfo?.role || "user role not found"}
                 </p>
                 <li>
                   <button

@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/add-product",
+        element: <p>Add Product</p>,
+      },
     ],
   },
 ]);
