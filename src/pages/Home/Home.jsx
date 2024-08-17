@@ -17,6 +17,8 @@ const Home = () => {
     productCount,
   } = useProducts();
 
+  console.log("loading", ploading);
+
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
