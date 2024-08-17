@@ -24,7 +24,7 @@ export default function MealCard({ product }) {
   let time = date.toLocaleTimeString();
 
   return (
-    <div className="group rounded-lg bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden  m-3 flex flex-col max-w-sm">
+    <div className="group rounded-lg dark:text-slate-300 bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden  m-3 flex flex-col max-w-sm">
       <div className="relative h-64">
         <img
           className="w-full h-full object-cover group-hover:scale-105 duration-300"
@@ -53,7 +53,7 @@ export default function MealCard({ product }) {
         <div>
           <p className="text-sm">
             {product_disc.slice(0, 150)} ...{" "}
-            <span className="text-blue-500">read more</span>
+            <span className="text-blue-500 cursor-pointer">read more</span>
           </p>
         </div>
         <ul className=" flex justify-between items-center list-none mt-4">

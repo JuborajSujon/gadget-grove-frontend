@@ -37,13 +37,13 @@ const Home = () => {
         <ProductNav handleToggle={handleToggle} isActive={isActive} />
         <div className="flex-1 p-4 overflow-auto">
           <div className="flex flex-col min-h-[calc(100vh-200px)] justify-between ">
+            {/* product count */}
+            <p>
+              {" "}
+              Products Found:{" "}
+              <span className="text-blue-500">{productCount}</span>
+            </p>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
-              {/* product count */}
-              <p>
-                {" "}
-                Products Found:{" "}
-                <span className="text-blue-500">{productCount}</span>
-              </p>
               {/* loader */}
               {ploading && <Loading />}
 
