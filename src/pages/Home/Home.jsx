@@ -13,11 +13,9 @@ const Home = () => {
     pages,
     numberOfPages,
     allProducts,
-    ploading,
+    pLoading,
     productCount,
   } = useProducts();
-
-  console.log("loading", ploading);
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -47,10 +45,10 @@ const Home = () => {
             </p>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
               {/* loader */}
-              {ploading && <Loading />}
+              {pLoading && <Loading />}
 
               {/* if there is no product */}
-              {allProducts?.productsData?.length === 0 && !ploading && (
+              {allProducts?.productsData?.length === 0 && !pLoading && (
                 <div className="text-center">
                   <h1 className="text-3xl font-bold">No Product Found</h1>
                 </div>
